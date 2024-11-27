@@ -1,28 +1,38 @@
 #include "MultiOptionInput.h"
 #include <iostream>
+#include <Utils.h>
 
 namespace UI {
     MultiOptionInput::MultiOptionInput(const std::string &prompt, const std::vector<std::string> &actions) {
-        std::cout << prompt;
-        std::cout << "\n";
-
-        int selection;
-
-        for (int i = 0; i < actions.size(); i++) {
-            std::cout << i << ". " << actions.at(i) << "\n";
+        int result = -1;
+        while (result < 1 || result > actions.size()) {
+            result = handle_input(prompt, actions);
+            std::cout << Utils::ClearScreen;
         }
 
-        std::cout << "\n" << "Your Choice: ";
-
-        std::cin >> selection;
-
-        m_result = selection;
+        m_result = result;
     }
 
     MultiOptionInput::~MultiOptionInput() = default;
 
 
-    int MultiOptionInput::get_result() const {
-        return m_result;
+    int MultiOptionInput::get_result_index() const {
+        return m_result - 1;
+    }
+
+    int MultiOptionInput::handle_input(const std::string &prompt, const std::vector<std::string> &actions) {
+        std::cout << prompt << "\n";
+
+        int selection;
+
+        for (int i = 0; i < actions.size(); i++) {
+            std::cout << Utils::Font::BrightRed << i + 1 << Utils::Font::Reset << ". " << actions.at(i) << "\n";
+        }
+
+        std::cout << "\n" << Utils::Font::BrightBlue << "[HeroName]" << Utils::Font::Reset << "> " << Utils::Font::BrightGreen;
+        std::cin >> selection;
+
+        std::cout << Utils::Font::Reset;
+        return selection;
     }
 }
