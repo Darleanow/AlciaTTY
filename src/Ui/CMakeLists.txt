@@ -3,7 +3,7 @@ add_library(UI
 )
 
 target_include_directories(UI PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/Components/Common
+        ${CMAKE_CURRENT_SOURCE_DIR}/Components/Utils
 
         ${CMAKE_CURRENT_SOURCE_DIR}/Components
 )
