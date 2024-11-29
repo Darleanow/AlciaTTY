@@ -7,7 +7,6 @@
 #endif
 
 namespace Utils {
-
 #if defined(_WIN32) || defined(_WIN64)
 
     // Helper to manage Windows console colors
@@ -19,7 +18,7 @@ namespace Utils {
         }
     }
 
-    inline std::ostream& apply_color(std::ostream& os, WORD attributes, bool is_foreground = true) {
+    inline std::ostream &apply_color(std::ostream &os, WORD attributes, bool is_foreground = true) {
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         WORD current = current_attributes();
 
@@ -37,104 +36,131 @@ namespace Utils {
     }
 
     namespace Font {
-        inline std::ostream& Reset(std::ostream& os) {
+        inline std::ostream &Reset(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
         }
-        inline std::ostream& Black(std::ostream& os) {
+
+        inline std::ostream &Black(std::ostream &os) {
             return apply_color(os, 0);
         }
-        inline std::ostream& Red(std::ostream& os) {
+
+        inline std::ostream &Red(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED);
         }
-        inline std::ostream& Green(std::ostream& os) {
+
+        inline std::ostream &Green(std::ostream &os) {
             return apply_color(os, FOREGROUND_GREEN);
         }
-        inline std::ostream& Yellow(std::ostream& os) {
+
+        inline std::ostream &Yellow(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_GREEN);
         }
-        inline std::ostream& Blue(std::ostream& os) {
+
+        inline std::ostream &Blue(std::ostream &os) {
             return apply_color(os, FOREGROUND_BLUE);
         }
-        inline std::ostream& Magenta(std::ostream& os) {
+
+        inline std::ostream &Magenta(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_BLUE);
         }
-        inline std::ostream& Cyan(std::ostream& os) {
+
+        inline std::ostream &Cyan(std::ostream &os) {
             return apply_color(os, FOREGROUND_GREEN | FOREGROUND_BLUE);
         }
-        inline std::ostream& White(std::ostream& os) {
+
+        inline std::ostream &White(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
         }
 
         // Bright Colors
-        inline std::ostream& BrightRed(std::ostream& os) {
+        inline std::ostream &BrightRed(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_INTENSITY);
         }
-        inline std::ostream& BrightGreen(std::ostream& os) {
+
+        inline std::ostream &BrightGreen(std::ostream &os) {
             return apply_color(os, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
         }
-        inline std::ostream& BrightYellow(std::ostream& os) {
+
+        inline std::ostream &BrightYellow(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
         }
-        inline std::ostream& BrightBlue(std::ostream& os) {
+
+        inline std::ostream &BrightBlue(std::ostream &os) {
             return apply_color(os, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         }
-        inline std::ostream& BrightMagenta(std::ostream& os) {
+
+        inline std::ostream &BrightMagenta(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         }
-        inline std::ostream& BrightCyan(std::ostream& os) {
+
+        inline std::ostream &BrightCyan(std::ostream &os) {
             return apply_color(os, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         }
-        inline std::ostream& BrightWhite(std::ostream& os) {
+
+        inline std::ostream &BrightWhite(std::ostream &os) {
             return apply_color(os, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         }
     }
 
     namespace Background {
-        inline std::ostream& Black(std::ostream& os) {
+        inline std::ostream &Black(std::ostream &os) {
             return apply_color(os, 0, false);
         }
-        inline std::ostream& Red(std::ostream& os) {
+
+        inline std::ostream &Red(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED, false);
         }
-        inline std::ostream& Green(std::ostream& os) {
+
+        inline std::ostream &Green(std::ostream &os) {
             return apply_color(os, BACKGROUND_GREEN, false);
         }
-        inline std::ostream& Yellow(std::ostream& os) {
+
+        inline std::ostream &Yellow(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_GREEN, false);
         }
-        inline std::ostream& Blue(std::ostream& os) {
+
+        inline std::ostream &Blue(std::ostream &os) {
             return apply_color(os, BACKGROUND_BLUE, false);
         }
-        inline std::ostream& Magenta(std::ostream& os) {
+
+        inline std::ostream &Magenta(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_BLUE, false);
         }
-        inline std::ostream& Cyan(std::ostream& os) {
+
+        inline std::ostream &Cyan(std::ostream &os) {
             return apply_color(os, BACKGROUND_GREEN | BACKGROUND_BLUE, false);
         }
-        inline std::ostream& White(std::ostream& os) {
+
+        inline std::ostream &White(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE, false);
         }
 
         // Bright Colors
-        inline std::ostream& BrightRed(std::ostream& os) {
+        inline std::ostream &BrightRed(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_INTENSITY, false);
         }
-        inline std::ostream& BrightGreen(std::ostream& os) {
+
+        inline std::ostream &BrightGreen(std::ostream &os) {
             return apply_color(os, BACKGROUND_GREEN | BACKGROUND_INTENSITY, false);
         }
-        inline std::ostream& BrightYellow(std::ostream& os) {
+
+        inline std::ostream &BrightYellow(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_INTENSITY, false);
         }
-        inline std::ostream& BrightBlue(std::ostream& os) {
+
+        inline std::ostream &BrightBlue(std::ostream &os) {
             return apply_color(os, BACKGROUND_BLUE | BACKGROUND_INTENSITY, false);
         }
-        inline std::ostream& BrightMagenta(std::ostream& os) {
+
+        inline std::ostream &BrightMagenta(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY, false);
         }
-        inline std::ostream& BrightCyan(std::ostream& os) {
+
+        inline std::ostream &BrightCyan(std::ostream &os) {
             return apply_color(os, BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY, false);
         }
-        inline std::ostream& BrightWhite(std::ostream& os) {
+
+        inline std::ostream &BrightWhite(std::ostream &os) {
             return apply_color(os, BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_INTENSITY, false);
         }
     }
@@ -188,16 +214,16 @@ namespace Utils {
 
     inline void clear_screen() {
 #if defined(_WIN32) || defined(_WIN64)
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        COORD coordScreen = {0, 0};
+        const HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        constexpr COORD coordScreen = {0, 0};
         DWORD charsWritten;
         CONSOLE_SCREEN_BUFFER_INFO csbi;
 
         if (!GetConsoleScreenBufferInfo(hConsole, &csbi)) return;
 
-        DWORD consoleSize = csbi.dwSize.X * csbi.dwSize.Y;
+        const DWORD consoleSize = csbi.dwSize.X * csbi.dwSize.Y;
 
-        FillConsoleOutputCharacter(hConsole, (TCHAR)' ', consoleSize, coordScreen, &charsWritten);
+        FillConsoleOutputCharacter(hConsole, (TCHAR) ' ', consoleSize, coordScreen, &charsWritten);
         FillConsoleOutputAttribute(hConsole, csbi.wAttributes, consoleSize, coordScreen, &charsWritten);
         SetConsoleCursorPosition(hConsole, coordScreen);
 #else
@@ -205,11 +231,32 @@ namespace Utils {
 #endif
     }
 
+    inline void clear_last_lines(int count) {
+#if defined(_WIN32) || defined(_WIN64)
+        // Windows-specific clearing using system calls
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        CONSOLE_SCREEN_BUFFER_INFO csbi;
+        if (!GetConsoleScreenBufferInfo(hConsole, &csbi)) return;
+
+        COORD cursor_pos = csbi.dwCursorPosition;
+        for (int i = 0; i < count; ++i) {
+            cursor_pos.Y -= 1;
+            SetConsoleCursorPosition(hConsole, cursor_pos);
+            DWORD chars_written;
+            FillConsoleOutputCharacter(hConsole, ' ', csbi.dwSize.X, cursor_pos, &chars_written);
+        }
+#else
+        // POSIX/ANSI clearing
+        for (int i = 0; i < count; ++i) {
+            std::cout << "\033[A\033[2K";
+        }
+#endif
+    }
+
     constexpr struct ClearScreenHelper {
-        friend std::ostream& operator<<(std::ostream& os, const ClearScreenHelper&) {
+        friend std::ostream &operator<<(std::ostream &os, const ClearScreenHelper &) {
             clear_screen();
             return os;
         }
     } ClearScreen;
-
 }
