@@ -1,2 +1,2 @@
 add_subdirectory(Ui)
-# Add more directories here
+add_subdirectory(Core)
