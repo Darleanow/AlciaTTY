@@ -7,13 +7,14 @@ add_executable(AlciaTTY main.cpp)
 
 add_subdirectory(src)
 
-target_link_libraries(AlciaTTY PRIVATE UI) # Libs here
+target_link_libraries(AlciaTTY PRIVATE UI Core) # Libs here
 
 add_compile_options(
         -Wall        # Enable all warnings
         -Wextra      # Additional warnings
         -Wpedantic   # Strict ISO compliance
         -Werror      # Treat warnings as errors
+        -Iinclude
 )
 
 set(CMAKE_CXX_FLAGS_DEBUG "/Zi /Od")          # debugging flags
