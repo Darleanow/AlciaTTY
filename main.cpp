@@ -1,11 +1,14 @@
-#include "Utils.h"
+#include "Components/MultiOptionInput.h"
 #include <iostream>
+#include <UIAnimation.h>
+#include <vector>
+#include <Combat/Combat.h>
 
 int main() {
-    std::cout << Utils::Font::BrightRed << Utils::Background::BrightYellow
-              << "Bright Red Text on Bright Yellow Background" << Utils::Font::Reset << std::endl;
+    Entities::Player player(100, 10);
+    Entities::Enemy enemy(65, 10);
 
-    // std::cout << Utils::ClearScreen;
-
+    Systems::Combat new_combat(player, enemy);
+    new_combat.handle_combat();
     return 0;
 }
