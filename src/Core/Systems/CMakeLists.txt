@@ -1,4 +1,5 @@
 add_library(Systems
+        Combat/Combat.cpp
         Actions/CombatAction.cpp
         Actions/AttackAction.cpp
         Actions/SpellAction.cpp
