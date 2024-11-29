@@ -1,6 +1,8 @@
 add_library(Entities
+        Character/Character.cpp
         Enemy/Enemy.cpp
 )
+
 target_link_libraries(Entities PRIVATE Systems)
 
 target_include_directories(Entities PUBLIC
