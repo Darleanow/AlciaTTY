@@ -1,5 +1,6 @@
 add_library(Entities
         Character/Character.cpp
+        Player/Player.cpp
         Enemy/Enemy.cpp
 )
 
